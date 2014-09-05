@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "0.11"
+  - "0.10"
+branches:
+  only:
+  - master
+before_install:
+  - chmod a+x gradlew
+script: npm install && bower install && gulp
+notifications:
+  email:
+    - lzy7750015@qq.com
