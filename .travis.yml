@@ -5,7 +5,10 @@ node_js:
 branches:
   only:
   - master
-script: npm install && bower install && gulp
+install: 
+  - npm install -g bower
+  - npm install -g gulp
+script: gulp
 notifications:
   email:
     - lzy7750015@qq.com
