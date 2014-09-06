@@ -6,7 +6,7 @@
 // 项目配置
 
 var gulp = require('gulp');
-
+var mainBowerFiles = require('main-bower-files');
 // 载入 plugins
 var $ = require('gulp-load-plugins')();
 
@@ -90,7 +90,7 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-    return $.bowerFiles()
+    return gulp.src(mainBowerFiles(/* options */), { base: assets_dir + "/bower_components" })
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
         .pipe(gulp.dest(dist_dir + '/fonts'))
