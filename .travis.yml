@@ -9,9 +9,17 @@ before_install: gem install compass
 install: 
   - npm install -g bower
   - npm install -g gulp
+  - cd $TRAVIS_BUILD_DIR/admin
   - npm install
   - bower install
-script: gulp
+  - cd $TRAVIS_BUILD_DIR/portal
+  - npm install
+  - bower install
+script: 
+  - cd $TRAVIS_BUILD_DIR/admin
+  - gulp
+  - cd $TRAVIS_BUILD_DIR/portal
+  - gulp
 notifications:
   email:
     - lzy7750015@qq.com
